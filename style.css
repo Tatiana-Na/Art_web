@@ -1,0 +1,263 @@
+/* reset.css */
+   *,
+   *::before,
+   *::after {
+     box-sizing: border-box; 
+   }
+
+   body {
+     margin: 0; 
+     padding: 0; 
+   }
+   a, a:link, a:visited, a:hover {
+   text-decoration: none;
+   }
+   :root {
+   font-family: Inter, sans-serif;
+   font-feature-settings: 'liga' 1,'calt' 1; 
+   --primary-color: #312f2f; 
+   --text-color: #423f3f;
+   }
+   @supports (font-variation-settings:normal) {
+  :root { font-family: InterVariable, sans-serif; }
+  }
+
+
+/* ----- Header ----- */
+.header {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-left: 20px;
+    border: 2px solid red;
+    margin-bottom: 30px;
+}
+
+.logo {
+    text-decoration: none;
+    color: #312f2f;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+/* ----- Hamburger ----- */
+.hamburger {
+  width: 28px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: fixed;
+  top: 22px;
+  right: 25px;
+  z-index: 1100;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.hamburger span {
+    height: 2.5px;
+    width: 100%;
+    background-color:var(--primary-color);
+    transition: 0.3s;
+}
+
+/* ----- Menu hidden ----- */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background-color: #e7e7e7; 
+  transition: height 0.4s ease;
+  z-index: 1000;
+}
+
+.nav-menu.open {
+  height: 100vh;
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-menu a {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    color: #726f6f;
+    font-size: 18px;
+}
+
+/* ----- Animation Hamburger ----- */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+
+
+/* ----- Slider ----- */
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
+.slide {
+  display: flex;
+  width: 86vw;
+  flex-direction: column; 
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide img {
+  width: 86vw;
+  height: auto;
+  object-fit: contain; 
+  display: block;
+  margin: 0 auto; 
+  padding-bottom: 10px;
+}
+
+.caption {
+  align-self: flex-start; 
+  margin-left: 22px;
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+.caption h2 {
+  font-size: 14px;
+  padding-bottom: 5px;
+  margin:0;
+  
+}
+.caption p {
+  font-size: 12px;
+  color: var(--text-color);
+  margin: 0;
+}
+
+
+@media (min-width: 768px) {
+ /* ----- Hidden Hamburger ----- */
+  .hamburger {
+    display: none;
+  }
+
+  .main-container {
+    display: flex;
+  }
+
+  /* ----- Header ----- */
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30vw;
+    height: 100vh;
+    padding: 40px 30px;
+    border-right: 2px solid blue; /* для визуальной проверки */
+    box-sizing: border-box;
+  }
+
+  .logo {
+    margin-bottom: 40px;
+  }
+
+  .nav-menu {
+    position: static; 
+    height: auto; 
+    background: none;
+    overflow: visible;
+    width: 100%;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .nav-menu a {
+    color: var(--text-color);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav-menu a:hover {
+    color: var(--primary-color);
+  }
+
+  .social-links {
+    margin-top: 40px;
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-links a {
+    font-size: 13px;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto 20px 
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+}
+.slide img {
+  max-height: 80vh; 
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 20px auto; 
+}
+
+}
+
+
+
+
+
